@@ -1,0 +1,57 @@
+/* CartPage.css */
+.cart-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+  }
+  
+  .cart-item {
+    height: 50vh;
+    margin-left: 100px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 16px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cart-item div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cart-item button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    margin: 0 4px;
+  }
+  
+  .cart-item button:hover {
+    background-color: #0056b3;
+  }
+  
+  .total {
+    margin-top: 20px;
+    text-align: right;
+  }
+  
+  /* Styling for the "Checkout" button */
+  .total button {
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+  }
+  
+  .total button:hover {
+    background-color: #0056b3;
+  }
+  
