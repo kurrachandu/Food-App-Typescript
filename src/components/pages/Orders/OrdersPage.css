@@ -1,0 +1,36 @@
+.Order-Items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .order-item {
+    height: 45vh;
+    margin-left: 100px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 16px;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .order-item div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .order-item button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+    margin: 0 4px;
+  }
+  
+  .order-item button:hover {
+    background-color: #0056b3;
+  }
+  
