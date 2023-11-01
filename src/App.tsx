@@ -1,25 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './components/pages/Home/HomePage';
+import CartPage from './components/pages/Cart/CartPage';
+import Create from './components/pages/Auth/Create';
+// import Login from './components/pages/Auth/PostLogin';
+import Success from './components/pages/Logout/Success';
+import PostLogin from './components/pages/Auth/PostLogin';
+import Navbar from './Navbar';
+import OrdersPage from './components/pages/Orders/OrdersPage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {/* <Navbar/> */}
+      <Routes>
+        <Route path='/' element={<Create />} />
+        <Route path='/login' element={<PostLogin />} />
+        {/* <Route path='/header' element={<Header />} /> */}
+        <Route path="/home" element={<HomePage />} />
+        {/* <Route path="/menu" element={<MenuPage />} /> */}
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/orders" element={<OrdersPage />} />
+        <Route path='/success' element={<Success />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
