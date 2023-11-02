@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../Auth/PostLogin.css';
+// import '../../../App.css';
 import { useNavigate } from 'react-router-dom';
 import FormInput from './FormInput';
 
@@ -8,10 +9,7 @@ const PostLogin: React.FC = () => {
   const [values, setValues] = useState({
     username: "",
     email: "",
-    // DateofBirth: "",
-    // mobileNumber: "", // Add the mobileNumber field
     password: "",
-    // confirmPassword: "",
     gender: "",
   });
 
@@ -35,7 +33,7 @@ const PostLogin: React.FC = () => {
     navigate('/');
   };
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setValues({ ...values, [e.target.name]: e.target.value });
     setDuplicateError(false);
   };
@@ -66,28 +64,6 @@ const PostLogin: React.FC = () => {
           onChange={onChange}
         />
 
-        {/* <FormInput
-          name="mobileNumber"
-          placeholder="Mobile Number"
-          errorMessage="Mobile number should be 10 digits"
-          label="Mobile Number"
-          pattern="[0-9]{10}"
-          required={true}
-          value={values.mobileNumber || ''}
-          onChange={onChange}
-        /> */}
-
-        {/* <FormInput
-          name="DateofBirth"
-          type="date"
-          placeholder="Date of Birth"
-          errorMessage="Please enter a valid date"
-          label="Date of Birth"
-          required={true}
-          value={values.DateofBirth}
-          onChange={onChange}
-        /> */}
-
         <FormInput
           name="password"
           placeholder="Password"
@@ -100,34 +76,20 @@ const PostLogin: React.FC = () => {
         />
 
         <div className='gender'>
-          <p>Gender</p>
-          <input
-            type="radio"
+          <label className='label1'>
+            <h3 className='header'>Gender</h3>
+          </label>
+          <select
+            className='gender'
             name="gender"
-            value="male"
-            onChange={onChange}
-          />
-          <label htmlFor="Male">Male</label>
-          <input
-            type="radio"
-            name="gender"
-            value="female"
-            onChange={onChange}
-          />
-          <label htmlFor="female">Female</label>
+            value={values.gender}
+            onChange={(e) => onChange(e)}
+            required={true}
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
         </div>
-
-        {/* <FormInput
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          errorMessage="Passwords do not match"
-          label="Confirm Password"
-          pattern={values.password}
-          required={true}
-          value={values.confirmPassword}
-          onChange={onChange}
-        /> */}
-
         <button className="btn" type="submit" onClick={() => navigate("/login")}>
           Submit
         </button>
