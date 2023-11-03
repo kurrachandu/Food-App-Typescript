@@ -9,6 +9,7 @@ interface FoodItem {
   itemDescription: string;
   itemPrice: number; // Ensure itemPrice is a number
   itemImage: string;
+  itemQuantity:number;
 }
 
 const HomePage: React.FC = () => {
