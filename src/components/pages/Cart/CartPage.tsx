@@ -27,6 +27,25 @@ const CartPage: React.FC = () => {
     setPopupFlag(true);
   }
 
+  const increaseQuantity = (index: number): void => {
+    const updatedCartItems: CartItem[] = [...cartItems];
+    updatedCartItems[index].itemQuantity += 1;
+    setCartItems(updatedCartItems);
+    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+  };
+  
+  const decreaseQuantity = (index: number): void => {
+    const updatedCartItems: CartItem[] = [...cartItems];
+    if (updatedCartItems[index].itemQuantity === 1) {
+      // If the quantity is 1 and the decrease button is clicked, remove the item
+      updatedCartItems.splice(index, 1);
+    } else {
+      updatedCartItems[index].itemQuantity -= 1;
+    }
+    setCartItems(updatedCartItems);
+    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+  };
+  
   const removeFromCart = (index: number) => {
     // Create a copy of cartItems and remove the item at the given index
     const updatedCartItems = [...cartItems];
@@ -52,6 +71,10 @@ const CartPage: React.FC = () => {
               <p>{cartItem.itemDescription}</p>
               <p>Price: ${cartItem.itemPrice}</p>
               <p>Quantity({cartItem.itemQuantity})</p>
+              <div className='total'>
+              <button className='add-to-cart-btn1' onClick={() => increaseQuantity(index)}>+</button>
+                <button className='add-to-cart-btn2' onClick={() => decreaseQuantity(index)}>-</button>
+                </div>
               <div className='total'>
                 <button onClick={() => handlePlaceOrder(cartItem)}>PlaceOrder</button>
                 <button onClick={() => removeFromCart(index)}>Remove</button>
